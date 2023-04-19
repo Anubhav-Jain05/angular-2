@@ -1,35 +1,141 @@
-<!-- <div class="container my-5 mx-7 p-5 ">
-  <div class="row ">
-    <div class="col-md-3 offset-md-3">
-      <form>
-        <div class="form-group p-2">
-          <label for="firstname text-yellow" >Firstname</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="form-group p-2">
-          <label for="firstname">Firstname</label>
-          <input type="text" class="form-control">
-        </div>
-      </form>
+<div class="h-100 d-flex align-items-center justify-content-center mt-4 ">
+  <div class="border border-white rounded bg-muted text-dark" style="width: 50%; font-size: 15px;">
+    <h2 class="container  text-center">Registration form</h2>
+    <form class="row g-3 d-flex p-3" [formGroup]="SignUpForm" (ngSubmit)="SignUpUser()">
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">First Name</label>
+        <input type="text" placeholder="Enter your first name" class="form-control" formControlName="FirstName" id="inputEmail4" autocomplete="off" required/>
+        <div  class="design " *ngIf="FirstName && FirstName.errors && FirstName.errors['required'] && (FirstName.touched || FirstName.dirty)" 
+        >First Name is required
+      </div>
+      <div  class="design" *ngIf="FirstName && FirstName.errors && FirstName.errors['minlength'] && (FirstName.touched || FirstName.dirty)" 
+      >First Name is too short
+      </div>
+      <div class="design " *ngIf="FirstName && FirstName.errors && FirstName.errors['pattern'] && (FirstName.dirty || FirstName.touched)" 
+          id="col">First character should be Upper or Lower Case
+      </div>
     </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Last Name</label>
+        <input type="text" placeholder="Enter your last name" class="form-control" formControlName="LastName" id="inputPassword4" autocomplete="off" />
+        <div class="design " *ngIf="LastName && LastName.errors && LastName.errors['required'] && (LastName.touched || LastName.dirty)" 
+        >LastName is required
+      </div>
+      <div class="design" *ngIf="LastName && LastName.errors && LastName.errors['minlength'] && (LastName.touched || LastName.dirty)" 
+          >LastName is too short
+      </div>
+                    
+      <div class="design" *ngIf="LastName && LastName.errors && LastName.errors['pattern'] && (LastName.dirty || LastName.touched)" 
+              id="col">First character should be Upper or Lower Case
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">E-mail</label>
+        <input type="email" placeholder="Enter your E-mail" class="form-control" formControlName="Email" id="inputPassword4"autocomplete="off" />
+        <div class="design"  *ngIf="Email && Email.errors && Email.errors['required'] && (Email.touched || Email.dirty)" 
+        >Email is required
+    </div>
+    <div class="design" *ngIf="Email && Email.errors && Email.errors['email'] && (Email.touched || Email.dirty)" 
+        >Email is invalid
+    </div>
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Password</label>
+        <input type="Password" placeholder="Enter your password" autocomplete="off"class="form-control" maxlength="15" formControlName="Password" id="inputPassword4" />
+        <div class="design" *ngIf="Password && Password.errors && Password.errors['required'] && (Password.touched || Password.dirty)" 
+          >Password is required
+        </div>
+        <div  class="design" *ngIf="Password && Password.errors && Password.errors['minlength']  && (Password.touched || Password.dirty)" 
+              >Password should be atleast 8-15 character long
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Date Of Birth</label>
+        <input type="date" placeholder="Enter your first name" autocomplete="off" class="form-control"  formControlName= "DateOfBirth" id="inputEmail4" />
+        <div class="design"  *ngIf="DateOfBirth && DateOfBirth.errors && DateOfBirth.errors['required'] && (DateOfBirth.touched || DateOfBirth.dirty)" 
+          >DOB is required
+        </div>
+      </div>
+     
+      <!-- <div class="col-12">
+        <label for="inputAddress" class="form-label">Address</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputAddress"
+          placeholder="1234 Main St"
+        />
+      </div>
+      <div class="col-12">
+        <label for="inputAddress2" class="form-label">Address 2</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputAddress2"
+          placeholder="Apartment, studio, or floor"
+        />
+      </div> -->
+      <!-- <div class="col-md-6">
+        <label for="inputCity" class="form-label">City</label>
+        <input type="text" class="form-control" id="inputCity" />
+      </div> -->
+      <div class="col-md-6">
+        <label for="inputGender" class="form-label">Gender</label>
+        <!-- <input type="text" class="form-control" id="inputCity" /> -->
+        <select id="inputGender" class="form-select" formControlName="Gender" >
+        <option value="" selected>Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+        </select>
+        <div class="design" id="col" *ngIf="Gender && Gender.invalid && (Gender.touched || Gender.dirty)"  >Select Gender</div>
+      </div>
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Mobile No</label>
+        <input type="text" placeholder="Enter your mob no." autocomplete="off" maxlength="10" autocomplete="off" class="form-control" formControlName="MobileNo" id="inputEmail4" />
+        <div class="design" *ngIf="MobileNo && MobileNo.errors &&MobileNo.errors['required'] && (MobileNo.touched || MobileNo.dirty)" 
+             >Mob No is required
+        </div>
+        <div class="design" *ngIf="MobileNo && MobileNo.errors &&MobileNo.errors['pattern'] && (MobileNo.touched || MobileNo.dirty)" 
+        id="col" >Mob No is invalid
+    </div>
+    <div  class="design" *ngIf="MobileNo && MobileNo.errors &&MobileNo.errors['minlength'] && (MobileNo.touched || MobileNo.dirty)" 
+            >Minimum length required 10
+    </div>
+      </div>
+      
+      <div class="col-md-6">
+        <label for="inputState" class="form-label">Country</label>
+        <select id="inputState" class="form-select" formControlName="Country">
+          <option value="" selected>Select Country</option>
+          <option value="India">India</option>
+          <option value="USA">USA</option>
+          <option value="Russia">Russia</option>
+          <option value="England">England</option>
+        </select>
+        <div class="design" *ngIf="Country && Country.errors && Country.errors['required'] && (Country.touched || Country.dirty)"
+        >Country is required
+    </div>
+      </div>
+      <!-- <div class="col-md-2">
+        <label for="inputZip" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="inputZip" />
+      </div> -->
+      <!-- <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck" />
+          <label class="form-check-label" for="gridCheck"> Check me out </label>
+        </div>
+      </div> -->
+      <!-- <div class="col-6">
+        <button type="submit" Value="Next"class="btn btn-primary" routerLink="/UseradComponent" [disabled]="SignUpForm.invalid">Previous</button>
+        <div *ngIf="SignUpForm.invalid">Next button is disabled.Please fill all required field</div>
+      </div> -->
+      <div class="col-6">
+        <button type="submit" Value="Next"class="btn btn-primary" routerLink="/UseradComponent" [disabled]="SignUpForm.invalid">Next</button>
+        <div *ngIf="SignUpForm.invalid">Next button is disabled.Please fill all required field</div>
+      </div>
+    </form>
   </div>
-</div> -->
-<div class="container mt-3">
-  <h2>Stacked form</h2>
-  <form action="/action_page.php">
-    <div class=" mb-3 mt-3 px-2">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control p-2" id="email"autocomplete="off" placeholder="Enter email" name="email">
-    </div>
-    <div class=" mb-3 p-2">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control p-2" id="pwd" placeholder="Enter password" name="pswd">
-    </div>
-    <div class="form-check mb-3 px-2">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember"> Remember me
-      </label>
-    </div>
-    <button type="submit" class="btn btn-primary  px-2">Submit</button>
-  </form>
 </div>

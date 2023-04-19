@@ -10,6 +10,10 @@ import { ServicesComponent } from './services/services.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
 import { SignupComponent } from './signup/signup.component';
+import { UseradComponent } from './userad/userad.component';
+import { NomineedComponent } from './nomineed/nomineed.component';
+import { EduComponent } from './edu/edu.component';
+import { SubmitComponent } from './submit/submit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { SignupComponent } from './signup/signup.component';
     ServicesComponent,
     AboutUsComponent,
     ContactComponent,
-    SignupComponent
+    SignupComponent,
+    UseradComponent,
+    NomineedComponent,
+    EduComponent,
+    SubmitComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +40,10 @@ import { SignupComponent } from './signup/signup.component';
       {path: 'HomeComponent', component:HomeComponent},
       {path: 'ServicesComponent', component:ServicesComponent},
       {path: 'SignupComponent', component:SignupComponent},
+      {path: 'UseradComponent', component:UseradComponent},
+      {path: 'NomineedComponent', component:NomineedComponent},
+      {path: 'EduComponent', component:EduComponent},
+      {path: 'SubmitComponent', component:SubmitComponent},
     ]),
     AppRoutingModule
   ],
