@@ -1,6 +1,6 @@
 <div class="h-100 d-flex align-items-center justify-content-center mt-4 ">
-  <div class="border border-white rounded bg-muted text-dark" style="width: 50%; font-size: 15px;">
-    <h2 class="container  text-center">Registration form</h2>
+  <div class="border border-dark rounded bg-muted text-dark" style="width: 50%; font-size: 15px;">
+    <h2 class="container  text-center mt-3">Registration form</h2>
     <form class="row g-3 d-flex p-3" [formGroup]="SignUpForm" (ngSubmit)="SignUpUser()">
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">First Name</label>
@@ -49,6 +49,13 @@
         <div  class="design" *ngIf="Password && Password.errors && Password.errors['minlength']  && (Password.touched || Password.dirty)" 
               >Password should be atleast 8-15 character long
         </div>
+        <!-- <div  class="design" *ngIf="Password && Password.errors && Password.errors['pattern']  && (Password.touched || Password.dirty)" 
+        ><pre>Please enter At least 8 characters in length
+        Lowercase letters
+        Uppercase letters
+        Numbers
+        Special characters</pre>
+  </div> -->
       </div>
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Date Of Birth</label>

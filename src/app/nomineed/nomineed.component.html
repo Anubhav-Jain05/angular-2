@@ -1,6 +1,6 @@
 <div class="h-100 d-flex align-items-center justify-content-center mt-4">
-    <div class="border border-white rounded bg-muted text-dark" style="width: 50%; font-size: 15px;">
-      <h2 class="container  text-center">Nominee Details</h2>
+    <div class="border border-dark rounded bg-muted text-dark" style="width: 50%; font-size: 15px;">
+      <h2 class="container  text-center mt-3">Nominee Details</h2>
       <form class="row g-3 d-flex p-3" [formGroup]="SignUpForm" (ngSubmit)="SignUpUser()">
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">First Name</label>
@@ -78,8 +78,8 @@
         <div class="col-6">
             <button type="submit" Value="Next"class="btn btn-primary" routerLink="/UseradComponent" >Previous</button>
           </div>
-        <div class="col-6">
-          <button type="submit" Value="Next"class="btn btn-primary"  [disabled]="SignUpForm.invalid">Next</button>
+        <div class="col-6 text-end">
+          <button type="submit" Value="Next"class="btn btn-primary justify-content-end"  [disabled]="SignUpForm.invalid">Next</button>
           <div *ngIf="SignUpForm.invalid">Next button is disabled.Please fill all required field</div>
         </div>
       </form>

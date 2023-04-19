@@ -1,6 +1,6 @@
 <div class="h-100 d-flex align-items-center justify-content-center mt-4 ">
-    <div class="border border-white rounded bg-muted text-dark" style="width: 50%; font-size: 15px; ">
-      <h2 class="container  text-center">User Address</h2>
+    <div class="border border-dark rounded bg-muted text-dark" style="width: 50%; font-size: 15px; ">
+      <h2 class="container  text-center mt-3">User Address</h2>
       <form class="row g-3 d-flex p-3" [formGroup]="UserAdd" (ngSubmit)="AddressUser()">
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Address</label>
@@ -44,7 +44,7 @@
         <div class="col-6">
             <button type="submit" Value="Next"class="btn btn-primary" routerLink="/SignupComponent">Previous</button>
           </div>
-        <div class="col-6">
+        <div class="col-6 text-end">
           <button type="submit" class="text-end" Value="Next"class="btn btn-primary"  [disabled]="UserAdd.invalid">Next</button>
           <div *ngIf="UserAdd.invalid">Next button is disabled.Please fill all required field</div>
         </div>

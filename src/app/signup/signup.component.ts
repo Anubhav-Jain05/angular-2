@@ -14,7 +14,7 @@ export class SignupComponent {
     LastName:new FormControl('',[Validators.required,Validators.minLength(2),Validators.pattern("[a-zA-Z].*")]),
     MobileNo:new FormControl('',[Validators.required,Validators.pattern("[6-9][0-9]*"),Validators.minLength(10),Validators.maxLength(10)]),
     Email:new FormControl('',[Validators.required,Validators.email]),
-    Password:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(15)]),
+    Password:new FormControl('',[Validators.required,Validators.minLength(8),Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,")]),
     DateOfBirth:new FormControl('',[Validators.required]),
     Gender:new FormControl('',[Validators.required]),
     Country:new FormControl('',[Validators.required])
