@@ -14,17 +14,16 @@ export class NomineedComponent {
     LastName:new FormControl('',[Validators.required,Validators.minLength(2),Validators.pattern("[a-zA-Z].*")]),
     MobileNo:new FormControl('',[Validators.required,Validators.pattern("[6-9][0-9]*"),Validators.minLength(10),Validators.maxLength(10)]),
     Email:new FormControl('',[Validators.required,Validators.email]),
-    // Password:new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(15)]),
     DateOfBirth:new FormControl('',[Validators.required]),
     Gender:new FormControl('',[Validators.required]),
-    // Country:new FormControl('',[Validators.required])
   })
-  // constructor(private routing: Router) { }
+  constructor(private routing: Router) { }
   SignUpUser()
   {
     //alert("submitted")
     console.log(this.SignUpForm.value)
-    // this.routing.navigate(['/UseradComponent'])
+    this.routing.navigate(['/EduComponent'])
+    window.localStorage.setItem("nominee", JSON.stringify(this. SignUpForm.value));
   }
   get FirstName()
   {
@@ -42,14 +41,7 @@ export class NomineedComponent {
   {
     return this.SignUpForm.get("Email");
   }
-  // get Password()
-  // {
-  //   return this.SignUpForm.get("Password");
-  // }
-  // get Country()
-  // {
-  //   return this.SignUpForm.get("Country");
-  // }
+ 
   get SignUp()
   {
     return this.SignUpForm.get("SignUp");

@@ -44,6 +44,7 @@ import { SubmitComponent } from './submit/submit.component';
       {path: 'NomineedComponent', component:NomineedComponent},
       {path: 'EduComponent', component:EduComponent},
       {path: 'SubmitComponent', component:SubmitComponent},
+      
     ]),
     AppRoutingModule
   ],

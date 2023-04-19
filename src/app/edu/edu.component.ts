@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edu',
@@ -9,7 +10,6 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 export class EduComponent {
   title = "Angular Reactive form"
   SignUpForm = new FormGroup({
-    // 10thClass:new FormControl('',[Validators.required,Validators.pattern("[0-9]*")]),
     Board:new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z].*")]),
     School:new FormControl('',[Validators.required,Validators.pattern("[a-zA-z].*")]),
     Percentage:new FormControl('',[Validators.required,Validators.pattern("[0-9].*")]),
@@ -17,18 +17,19 @@ export class EduComponent {
     school:new FormControl('',[Validators.required,Validators.pattern("[a-zA-z].*")]),
     percentage:new FormControl('',[Validators.required,Validators.pattern("[0-9].*")]),
     UniversityName:new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z].*")]),
-    // Termandconditions:new FormControl('',Validators.required),
     Course:new FormControl('',[Validators.required,Validators.pattern("[a-zA-z].*")]),
     Branch:new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z].*")]),
     percentagee:new FormControl('',[Validators.required,Validators.pattern("[0-9].*")]),
     
   })
-  // constructor(private routing: Router) { }
+  constructor(private routing: Router) { }
   SignUpUser()
   {
     //alert("submitted")
     console.log(this.SignUpForm.value)
-    // this.routing.navigate(['/EduComponent'])
+    this.routing.navigate(['/SubmitComponent'])
+    window.localStorage.setItem("edudetails", JSON.stringify(this. SignUpForm.value));
+
   }
   // get Class()
   // {
@@ -74,8 +75,5 @@ export class EduComponent {
   {
     return this.SignUpForm.get("percentagee");
   }
-  // get Termandconditions()
-  // {
-  //   return this.SignUpForm.get("Termandconditions");
-  // }
+  
 }

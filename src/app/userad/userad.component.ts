@@ -12,16 +12,17 @@ export class UseradComponent {
   title = "Angular Reactive form"
   UserAdd = new FormGroup({
     Address:new FormControl('',[Validators.required]),
-    City:new FormControl('',[Validators.required]),
-    State:new FormControl('',[Validators.required]),
+    City:new FormControl('',[Validators.required,Validators.pattern("[a-zA-z].*")]),
+    State:new FormControl('',[Validators.required,Validators.pattern("[a-zA-z].*")]),
     Pincode:new FormControl('',[Validators.required,Validators.pattern("[0-9]*")]),
   })
-  // constructor(private routing: Router) { }
+  constructor(private routing: Router) { }
   AddressUser()
   {
     //alert("submitted")
     console.log(this.UserAdd.value)
-    // this.routing.navigate(['/NomineedComponent'])
+    this.routing.navigate(['/NomineedComponent'])
+    window.localStorage.setItem("useradd", JSON.stringify(this.UserAdd.value));
 
   }
   get Address()

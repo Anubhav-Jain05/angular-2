@@ -36,3 +36,6 @@ nav {
 .navMenu a:hover{
     color: yellow;
 }
+.navbar-nav a:hover{
+    color:yellow;
+}

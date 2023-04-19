@@ -19,12 +19,13 @@ export class SignupComponent {
     Gender:new FormControl('',[Validators.required]),
     Country:new FormControl('',[Validators.required])
   })
-  // constructor(private routing: Router) { }
+  constructor(private routing: Router) { }
   SignUpUser()
   {
     //alert("submitted")
+    window.localStorage.setItem("signup", JSON.stringify(this.SignUpForm.value));
     console.log(this.SignUpForm.value)
-    // this.routing.navigate(['/UseradComponent'])
+    this.routing.navigate(['/UseradComponent'])
   }
   get FirstName()
   {

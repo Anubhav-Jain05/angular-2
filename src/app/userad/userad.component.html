@@ -9,20 +9,26 @@
           >Address is required
   </div>
 
-      </div>
+    </div>
         <div class="col-md-6">
           <label for="inputPassword4" class="form-label">City</label>
           <input type="text" placeholder="Enter your city" class="form-control" formControlName="City" id="inputPassword4" />
           <div class="design"  *ngIf="City && City.errors && City.errors['required'] && (City.touched || City.dirty)" 
           >City is required
-  </div>
         </div>
+        <div class="design"  *ngIf="City && City.errors && City.errors['pattern'] && (City.touched || City.dirty)" 
+          >Invalid City/Please enter valid city
+        </div>
+    </div>
         
         <div class="col-md-6">
           <label for="inputPassword4" class="form-label">State</label>
           <input type="text" placeholder="Enter your state" class="form-control" formControlName="State" id="inputPassword4" />
           <div  class="design" *ngIf="State && State.errors && State.errors['required'] && (State.touched || State.dirty)" 
           >State is required
+       </div>
+       <div  class="design" *ngIf="State && State.errors && State.errors['pattern'] && (State.touched || State.dirty)" 
+          >Please enter valid state
        </div>
       
         </div>
@@ -34,79 +40,12 @@
       </div>
       <div class="design" *ngIf="Pincode && Pincode.errors && Pincode.errors['pattern'] && (Pincode.touched || Pincode.dirty)"  >please enter a valid input</div>
         </div>
-        <!-- <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Date Of Birth</label>
-          <input type="date" placeholder="Enter your first name" class="form-control"  formControlName= "" id="inputEmail4" />
-          
-        </div> -->
        
-        <!-- <div class="col-12">
-          <label for="inputAddress" class="form-label">Address</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputAddress"
-            placeholder="1234 Main St"
-          />
-        </div>
-        <div class="col-12">
-          <label for="inputAddress2" class="form-label">Address 2</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputAddress2"
-            placeholder="Apartment, studio, or floor"
-          />
-        </div> -->
-        <!-- <div class="col-md-6">
-          <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity" />
-        </div> -->
-        <!-- <div class="col-md-6">
-          <label for="inputGender" class="form-label">Gender</label>
-            <select id="inputGender" class="form-select" formControlName="Gender" >
-          <option value="" selected>Select Gender</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Other">Other</option>
-          </select>
-          <div class="design" id="col" *ngIf="Gender && Gender.invalid && (Gender.touched || Gender.dirty)"  >Select Gender</div>
-        </div> -->
-        <!-- <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Mobile No</label>
-          <input type="text" placeholder="Enter your mob no." maxlength="10" autocomplete="off" class="form-control" formControlName="" id="inputEmail4" />
-         
-        </div> -->
-        
-        <!-- <div class="col-md-6">
-          <label for="inputState" class="form-label">Country</label>
-          <select id="inputState" class="form-select" formControlName="Country">
-            <option value="" selected>Select Country</option>
-            <option value="India">India</option>
-            <option value="USA">USA</option>
-            <option value="Russia">Russia</option>
-            <option value="England">England</option>
-          </select>
-          <div *ngIf="Country && Country.errors && Country.errors['required'] && (Country.touched || Country.dirty)"
-          >Country is required
-      </div>
-        </div> -->
-        <!-- <div class="col-md-2">
-          <label for="inputZip" class="form-label">Zip</label>
-          <input type="text" class="form-control" id="inputZip" />
-        </div> -->
-        <!-- <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck" />
-            <label class="form-check-label" for="gridCheck"> Check me out </label>
-          </div>
-        </div> -->
         <div class="col-6">
             <button type="submit" Value="Next"class="btn btn-primary" routerLink="/SignupComponent">Previous</button>
-            <!-- <div *ngIf="UserAdd.invalid">Next button is disabled.Please fill all required field</div> -->
           </div>
         <div class="col-6">
-          <button type="submit" Value="Next"class="btn btn-primary" routerLink="/NomineedComponent" [disabled]="UserAdd.invalid">Next</button>
+          <button type="submit" class="text-end" Value="Next"class="btn btn-primary"  [disabled]="UserAdd.invalid">Next</button>
           <div *ngIf="UserAdd.invalid">Next button is disabled.Please fill all required field</div>
         </div>
       </form>
