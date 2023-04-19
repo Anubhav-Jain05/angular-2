@@ -14,6 +14,7 @@ import { UseradComponent } from './userad/userad.component';
 import { NomineedComponent } from './nomineed/nomineed.component';
 import { EduComponent } from './edu/edu.component';
 import { SubmitComponent } from './submit/submit.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SubmitComponent } from './submit/submit.component';
     UseradComponent,
     NomineedComponent,
     EduComponent,
-    SubmitComponent
+    SubmitComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
