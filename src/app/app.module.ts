@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxUiLoaderModule,NgxUiLoaderRouterModule } from "ngx-ui-loader";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HumaniticsComponent } from './humanitics/humanitics.component';
@@ -33,6 +34,8 @@ import { HeaderComponent } from './shared/header/header.component';
   ],
   imports: [
     BrowserModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderRouterModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
@@ -46,6 +49,7 @@ import { HeaderComponent } from './shared/header/header.component';
       {path: 'NomineedComponent', component:NomineedComponent},
       {path: 'EduComponent', component:EduComponent},
       {path: 'SubmitComponent', component:SubmitComponent},
+      {path: 'HeaderComponent', component:HeaderComponent},
       
     ]),
     AppRoutingModule

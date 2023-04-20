@@ -1,137 +1,183 @@
 <div class="h-100 d-flex align-items-center justify-content-center mt-4">
-    <div class="border border-dark rounded bg-muted text-dark" style="width: 50%; font-size: 15px;">
-      <h2 class="container  text-center mt-3">Education Details</h2>
-      <form class="row g-3 d-flex p-3" [formGroup]="SignUpForm" (ngSubmit)="SignUpUser()">
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">10th Board</label>
-          <input type="text"autocomplete="off"  placeholder="Enter board name" class="form-control" formControlName="Board" id="inputEmail4" required/>
-          <div class="design" *ngIf="Board && Board.errors && Board.errors['required'] && (Board.touched || Board.dirty)" 
-                > Board id Mandatory
-            </div>
-                           
-            <div  class="design" *ngIf="Board && Board.errors && Board.errors['pattern'] && (Board.dirty ||Board.touched)" 
-                    >Input should be Alphabets
-            </div>
+  <div class="border border-dark rounded bg-muted text-dark" style="width: 50%; font-size: 15px;">
+    <h2 class="container  text-center mt-3">Education Details</h2>
+    <form class="row g-3 d-flex p-3" [formGroup]="SignUpForm" (ngSubmit)="SignUpUser()">
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">10th Board</label>
+        <input type="text" autocomplete="off" placeholder="Enter board name" class="form-control"
+          formControlName="Board" id="inputEmail4" required />
+        <div class="design" *ngIf="Board && Board.errors && Board.errors['required'] && (Board.touched || Board.dirty)">
+          Board id Mandatory
+        </div>
+
+        <div class="design" *ngIf="Board && Board.errors && Board.errors['pattern'] && (Board.dirty ||Board.touched)">
+          Input should be Alphabets
+        </div>
       </div>
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">10th School</label>
-          <input type="text"autocomplete="off"  placeholder="Enter school name" class="form-control" formControlName="School" id="inputPassword4" />
-          <div class="design" *ngIf="School && School.errors && School.errors['required'] && (School.touched || School.dirty)" 
-                    >School name is required
-                </div>
-                <div class="design"  *ngIf="School && School.errors && School.errors['pattern'] && (School.touched || School.dirty)" 
-                    >Input is Invalisd. Please enter the valisd input
-                </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">10th School</label>
+        <input type="text" autocomplete="off" placeholder="Enter school name" class="form-control"
+          formControlName="School" id="inputPassword4" />
+        <div class="design"
+          *ngIf="School && School.errors && School.errors['required'] && (School.touched || School.dirty)">School name
+          is required
         </div>
-        
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">10th Percentage</label>
-          <input type="email" autocomplete="off" maxlength="5" placeholder="Enter 10th percentage" class="form-control" formControlName="Percentage" id="inputPassword4" />
-          <div class="design" *ngIf="Percentage && Percentage.errors && Percentage.errors['required'] && (Percentage.touched || Percentage.dirty)" 
-          >Percentage is required
+        <div class="design"
+          *ngIf="School && School.errors && School.errors['pattern'] && (School.touched || School.dirty)">Input is
+          Invalisd. Please enter the valisd input
+        </div>
       </div>
-      <div class="design" *ngIf="Percentage && Percentage.errors && Percentage.errors['pattern'] && (Percentage.touched || Percentage.dirty)" 
-          >invalid/ enter valid percentage
+
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">10th Percentage</label>
+        <input type="email" autocomplete="off" maxlength="5" placeholder="Enter 10th percentage" class="form-control"
+          formControlName="Percentage" id="inputPassword4" />
+        <div class="design"
+          *ngIf="Percentage && Percentage.errors && Percentage.errors['required'] && (Percentage.touched || Percentage.dirty)">
+          Percentage is required
+        </div>
+        <div class="design"
+          *ngIf="Percentage && Percentage.errors && Percentage.errors['pattern'] && (Percentage.touched || Percentage.dirty)">
+          invalid/ enter valid percentage
+        </div>
       </div>
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">12th Board</label>
+        <input type="text" autocomplete="off" placeholder="Enter board name" class="form-control"
+          formControlName="board" id="inputEmail4" required />
+        <div class="design" *ngIf="board && board.errors && board.errors['required'] && (board.touched || board.dirty)">
+          Board id Mandatory
         </div>
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">12th Board</label>
-            <input type="text" autocomplete="off" placeholder="Enter board name" class="form-control" formControlName="board" id="inputEmail4" required/>
-            <div class="design" *ngIf="board && board.errors && board.errors['required'] && (board.touched || board.dirty)" 
-                            > Board id Mandatory
-                        </div>
-                        
-                        <div class="design" *ngIf="board && board.errors && board.errors['pattern'] && (board.dirty ||board.touched)" 
-                           >Input should be Alphabets
-                        </div>
+
+        <div class="design" *ngIf="board && board.errors && board.errors['pattern'] && (board.dirty ||board.touched)">
+          Input should be Alphabets
         </div>
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">12th School</label>
-            <input type="text" autocomplete="off" placeholder="Enter school name" class="form-control" formControlName="school" id="inputPassword4" />
-            <div class="design" *ngIf="school && school.errors && school.errors['required'] && (school.touched || school.dirty)" 
-                >School name is required
-            </div>
-            <div class="design" *ngIf="school && school.errors && school.errors['pattern'] && (school.touched || school.dirty)" 
-                >Input is Invalisd. Please enter the vali   d input
-            </div>
-          </div>
-          
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">12th Percentage</label>
-            <input type="email"autocomplete="off" maxlength="5" placeholder="Enter 12th percentage" class="form-control" formControlName="percentage" id="inputPassword4" />
-            <div class="design" *ngIf="percentage && percentage.errors && percentage.errors['required'] && (percentage.touched || percentage.dirty)" 
-                >Percentage is required
-            </div>
-            <div class="design" *ngIf="percentage && percentage.errors && percentage.errors['pattern'] && (percentage.touched || percentage.dirty)" 
-                >invalid/ enter valid percentage
-            </div>
-          </div>
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">University Name</label>
-            <input type="text" autocomplete="off" placeholder="Enter Uni.name" class="form-control" formControlName="UniversityName" id="inputEmail4" required/>
-            <div class="design" *ngIf="UniversityName && UniversityName.errors && UniversityName.errors['required'] && (UniversityName.dirty|| UniversityName.touched)" 
-            >University Name is required
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">12th School</label>
+        <input type="text" autocomplete="off" placeholder="Enter school name" class="form-control"
+          formControlName="school" id="inputPassword4" />
+        <div class="design"
+          *ngIf="school && school.errors && school.errors['required'] && (school.touched || school.dirty)">School name
+          is required
         </div>
-        
-        <div class="design" *ngIf="UniversityName && UniversityName.errors && UniversityName.errors['pattern'] && (UniversityName.dirty ||UniversityName.touched)" 
-            >Invalid Input
+        <div class="design"
+          *ngIf="school && school.errors && school.errors['pattern'] && (school.touched || school.dirty)">Input is
+          Invalisd. Please enter the vali d input
         </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">12th Percentage</label>
+        <input type="email" autocomplete="off" maxlength="5" placeholder="Enter 12th percentage" class="form-control"
+          formControlName="percentage" id="inputPassword4" />
+        <div class="design"
+          *ngIf="percentage && percentage.errors && percentage.errors['required'] && (percentage.touched || percentage.dirty)">
+          Percentage is required
         </div>
-          
-            <div class="col-md-6">
-                <label for="inputCourse" class="form-label">Course</label>
-                <select id="inputCourse" class="form-select" formControlName="Course">
-                  <option value="" selected>Select Course</option>
-                  <option value="B.Tech">B.Tech</option>
-                  <option value="Bca">Bca</option>
-                  <option value="Bsc">BSc</option>
-                  <option value="Diploma">Diploma</option>
-                </select>
-                <div class="design"  *ngIf="Course && Course.errors && Course.errors['required'] && (Course.touched || Course.dirty)" 
-                > Course is required
-            </div>
-              </div>
-    
-          <div class="col-md-6">
-            <label for="inputBranch" class="form-label">Branch</label>
-            <select id="inputBranch" class="form-select" formControlName="Branch">
-              <option value="" selected>Select Branch</option>
-              <option value="Computer Science and Engineering">Computer Science and Engineering</option>
-              <option value="Mechanical Engineering.">Mechanical Engineering.</option>
-              <option value="Civil Engineering.">Civil Engineering.</option>
-              <option value="Electrical Engineering.">Electrical Engineering.</option>
-              <option value="Accounting Applications.">Accounting Applications.</option>
-              <option value="Systems Analysis.">Systems Analysis.</option>
-              <option value="Internet Technologies">Internet Technologies</option>
-              <option value="Computer Graphics.">Computer Graphics.</option>
-              <option value="BSc Agriculture.">BSc Agriculture.</option>
-              <option value="BSc Biotechnology.">BSc Biotechnology.</option>
-              <option value="BSc Zoology.">BSc Zoology</option>
-            </select>
-            <!-- <input type="email"autocomplete="off"  placeholder="Enter branch" class="form-control" formControlName="Branch" id="inputPassword4" /> -->
-            <div class="design" *ngIf="Branch && Branch.errors && Branch.errors['required'] && (Branch.touched || Branch.dirty)" 
-            >Branch name is required
-         </div>
-         <!-- <div class="design" *ngIf="Branch && Branch.errors && Branch.errors['pattern'] && (Branch.touched || Branch.dirty)" 
+        <div class="design"
+          *ngIf="percentage && percentage.errors && percentage.errors['pattern'] && (percentage.touched || percentage.dirty)">
+          invalid/ enter valid percentage
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">University Name</label>
+        <input type="text" autocomplete="off" placeholder="Enter Uni.name" class="form-control"
+          formControlName="UniversityName" id="inputEmail4" required />
+        <div class="design"
+          *ngIf="UniversityName && UniversityName.errors && UniversityName.errors['required'] && (UniversityName.dirty|| UniversityName.touched)">
+          University Name is required
+        </div>
+
+        <div class="design"
+          *ngIf="UniversityName && UniversityName.errors && UniversityName.errors['pattern'] && (UniversityName.dirty ||UniversityName.touched)">
+          Invalid Input
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputCourse" class="form-label">Course</label>
+        <select id="inputCourse" class="form-select" formControlName="Course">
+          <option value="" selected>Select Course</option>
+          <option value="B.Tech">B.Tech</option>
+          <option value="Bca">Bca</option>
+          <option value="Bsc">BSc</option>
+          <option value="Diploma">Diploma</option>
+        </select>
+        <div class="design"
+          *ngIf="Course && Course.errors && Course.errors['required'] && (Course.touched || Course.dirty)"> Course is
+          required
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputBranch" class="form-label">Branch</label>
+        <select id="inputBranch" class="form-select" formControlName="Branch">
+          <option value="" selected>Select Branch</option>
+          <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+          <option value="Mechanical Engineering.">Mechanical Engineering.</option>
+          <option value="Civil Engineering.">Civil Engineering.</option>
+          <option value="Electrical Engineering.">Electrical Engineering.</option>
+          <option value="Accounting Applications.">Accounting Applications.</option>
+          <option value="Systems Analysis.">Systems Analysis.</option>
+          <option value="Internet Technologies">Internet Technologies</option>
+          <option value="Computer Graphics.">Computer Graphics.</option>
+          <option value="BSc Agriculture.">BSc Agriculture.</option>
+          <option value="BSc Biotechnology.">BSc Biotechnology.</option>
+          <option value="BSc Zoology.">BSc Zoology</option>
+        </select>
+        <!-- <input type="email"autocomplete="off"  placeholder="Enter branch" class="form-control" formControlName="Branch" id="inputPassword4" /> -->
+        <div class="design"
+          *ngIf="Branch && Branch.errors && Branch.errors['required'] && (Branch.touched || Branch.dirty)">Branch name
+          is required
+        </div>
+        <!-- <div class="design" *ngIf="Branch && Branch.errors && Branch.errors['pattern'] && (Branch.touched || Branch.dirty)" 
              >Input is Invalisd. Please enter the valid input
          </div> -->
+      </div>
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Percentage</label>
+        <input type="text" autocomplete="off" maxlength="5" placeholder="Enter Uni.Percentage" class="form-control"
+          formControlName="percentagee" id="inputEmail4" required />
+        <div class="design"
+          *ngIf="percentagee && percentagee.errors && percentagee.errors['required'] && (percentagee.touched || percentagee.dirty)">
+          Percentage is required
+        </div>
+        <div class="design"
+          *ngIf="percentagee && percentagee.errors && percentagee.errors['pattern'] && (percentagee.touched || percentagee.dirty)">
+          invalid/ enter valid percentage
+        </div>
+      </div>
+
+
+      <div class="col-12">
+        <!-- <button type="submit" Value="Submit"class="btn btn-primary"  [disabled]="SignUpForm.invalid">Submit</button> -->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary"  data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+          submit
+        </button>
+
+        <!-- Modal -->
+        <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header bg-secondary text-white" >
+                <h5 class="modal-title text-decoration-underline" id="exampleModalLabel">Remember</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-danger">
+                <b>Once You Submit the from, You do not able to make changes....!</b>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" value="Submit"  class="btn btn-success">Submit</button>
+              </div>
+            </div>
           </div>
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Percentage</label>
-            <input type="text" autocomplete="off" maxlength="5" placeholder="Enter Uni.Percentage" class="form-control" formControlName="percentagee" id="inputEmail4" required/>
-            <div class="design" *ngIf="percentagee && percentagee.errors && percentagee.errors['required'] && (percentagee.touched || percentagee.dirty)" 
-            >Percentage is required
-         </div>
-         <div class="design" *ngIf="percentagee && percentagee.errors && percentagee.errors['pattern'] && (percentagee.touched || percentagee.dirty)" 
-             >invalid/ enter valid percentage
-         </div>
         </div>
-       
-        
-        <div class="col-12">
-          <button type="submit" Value="Submit"class="btn btn-primary"  [disabled]="SignUpForm.invalid">Submit</button>
-          <div *ngIf="SignUpForm.invalid">Next button is disabled.Please fill all required field</div>
-        </div>
-      </form>
-    </div>
+        <div *ngIf="SignUpForm.invalid">Next button is disabled.Please fill all required field</div>
+      </div>
+    </form>
   </div>
+</div>
