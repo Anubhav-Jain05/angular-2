@@ -18,7 +18,7 @@ export class EduComponent {
     percentage:new FormControl('',[Validators.required,Validators.pattern("[0-9].*")]),
     UniversityName:new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z].*")]),
     Course:new FormControl('',[Validators.required,Validators.pattern("[a-zA-z].*")]),
-    Branch:new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z].*")]),
+    Branch:new FormControl('',[Validators.required]),
     percentagee:new FormControl('',[Validators.required,Validators.pattern("[0-9].*")]),
     
   })

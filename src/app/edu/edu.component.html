@@ -84,7 +84,7 @@
                   <option value="" selected>Select Course</option>
                   <option value="B.Tech">B.Tech</option>
                   <option value="Bca">Bca</option>
-                  <option value="Bsc">Bsc</option>
+                  <option value="Bsc">BSc</option>
                   <option value="Diploma">Diploma</option>
                 </select>
                 <div class="design"  *ngIf="Course && Course.errors && Course.errors['required'] && (Course.touched || Course.dirty)" 
@@ -93,14 +93,28 @@
               </div>
     
           <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Branch</label>
-            <input type="email"autocomplete="off"  placeholder="Enter branch" class="form-control" formControlName="Branch" id="inputPassword4" />
+            <label for="inputBranch" class="form-label">Branch</label>
+            <select id="inputBranch" class="form-select" formControlName="Branch">
+              <option value="" selected>Select Branch</option>
+              <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+              <option value="Mechanical Engineering.">Mechanical Engineering.</option>
+              <option value="Civil Engineering.">Civil Engineering.</option>
+              <option value="Electrical Engineering.">Electrical Engineering.</option>
+              <option value="Accounting Applications.">Accounting Applications.</option>
+              <option value="Systems Analysis.">Systems Analysis.</option>
+              <option value="Internet Technologies">Internet Technologies</option>
+              <option value="Computer Graphics.">Computer Graphics.</option>
+              <option value="BSc Agriculture.">BSc Agriculture.</option>
+              <option value="BSc Biotechnology.">BSc Biotechnology.</option>
+              <option value="BSc Zoology.">BSc Zoology</option>
+            </select>
+            <!-- <input type="email"autocomplete="off"  placeholder="Enter branch" class="form-control" formControlName="Branch" id="inputPassword4" /> -->
             <div class="design" *ngIf="Branch && Branch.errors && Branch.errors['required'] && (Branch.touched || Branch.dirty)" 
             >Branch name is required
          </div>
-         <div class="design" *ngIf="Branch && Branch.errors && Branch.errors['pattern'] && (Branch.touched || Branch.dirty)" 
+         <!-- <div class="design" *ngIf="Branch && Branch.errors && Branch.errors['pattern'] && (Branch.touched || Branch.dirty)" 
              >Input is Invalisd. Please enter the valid input
-         </div>
+         </div> -->
           </div>
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Percentage</label>
