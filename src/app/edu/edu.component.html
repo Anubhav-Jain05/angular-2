@@ -167,11 +167,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body text-danger">
-                <b>Once You Submit the from, You do not able to make changes....!</b>
+                <b>Once You Submit the from, You do not able to make changes....!<hr>If you want to make change and if you check the form again <br>Please click on the <mark>Make Changes</mark> button......!</b>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" value="Submit"  class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Make Changes</button>
+                <button type="submit" value="Submit"  class="btn btn-success" (click)="loadcall()">Submit</button>
               </div>
             </div>
           </div>

@@ -23,11 +23,18 @@ export class EduComponent {
     
   })
   constructor(private routing: Router) { }
+  loadcall(){
+    this.routing.navigate(['/SubmitComponent'])
+    setTimeout(()=>{
+      window.location.reload()
+    },1)
+
+  }
   SignUpUser()
   {
     //alert("submitted")
     console.log(this.SignUpForm.value)
-    this.routing.navigate(['/SubmitComponent'])
+    // this.routing.navigate(['/SubmitComponent'])
     window.localStorage.setItem("edudetails", JSON.stringify(this. SignUpForm.value));
 
   }
