@@ -18,6 +18,7 @@ import { SubmitComponent } from './submit/submit.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { NextComponent } from './about-us/next/next.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { CartComponent } from './services/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     SubmitComponent,
     HeaderComponent,
     NextComponent,
-    FooterComponent
+    FooterComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +58,7 @@ import { FooterComponent } from './shared/footer/footer.component';
       {path: 'HeaderComponent', component:HeaderComponent},
       {path: 'NextComponent', component:NextComponent},
       {path: 'FooterComponent', component:FooterComponent},
+      {path: 'CartComponent', component:CartComponent},
       
     ]),
     AppRoutingModule
