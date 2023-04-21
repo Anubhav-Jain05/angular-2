@@ -16,6 +16,8 @@ import { NomineedComponent } from './nomineed/nomineed.component';
 import { EduComponent } from './edu/edu.component';
 import { SubmitComponent } from './submit/submit.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { NextComponent } from './about-us/next/next.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HeaderComponent } from './shared/header/header.component';
     NomineedComponent,
     EduComponent,
     SubmitComponent,
-    HeaderComponent
+    HeaderComponent,
+    NextComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +54,8 @@ import { HeaderComponent } from './shared/header/header.component';
       {path: 'EduComponent', component:EduComponent},
       {path: 'SubmitComponent', component:SubmitComponent},
       {path: 'HeaderComponent', component:HeaderComponent},
+      {path: 'NextComponent', component:NextComponent},
+      {path: 'FooterComponent', component:FooterComponent},
       
     ]),
     AppRoutingModule
