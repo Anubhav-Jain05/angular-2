@@ -13,7 +13,7 @@
             <!-- {{getCartDet.length}} -->
             <tr *ngFor="let getCartDets of getCartDet">
               <td><img src="{{getCartDets.img}}" height="50px"></td>
-              <td>{{getCartDets.amt}}</td>
+              <td>₹ {{getCartDets.amt}}</td>
               <td>
                 <div class="content">
                     <!-- <button type="button" class="btn"><i class="bi bi-plus"></i></button> -->
@@ -23,14 +23,14 @@
                       </svg>
                     </button>
                       <span> {{getCartDets.qnt}}  </span>
-                      <button type="button" class="btn" (click)="decQnt(getCartDets.prodId, getCartDets.qnt)"> -</button>
+                      <button type="button" class="btn" (click)="decQnt(getCartDets.prodId, getCartDets.qnt)"> - </button>
                 </div>
-                <td>{{getCartDets.qnt * getCartDets.amt | number}}</td>
+                <td>₹ {{getCartDets.qnt * getCartDets.amt | number}}</td>
             </tr>
             
         </table>
-        <div class="col-md-6">
-          <h3>Total- rs {{total}}</h3>
+        <div class="col-md-12 text-end" style="padding-right: 85px;">
+          <h3>Total-₹ {{total}}</h3>
         </div>
             <!-- <tr>
               <td>Centro comercial Moctezuma</td>
