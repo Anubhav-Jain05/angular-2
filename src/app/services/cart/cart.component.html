@@ -12,9 +12,9 @@
             </tr>
             <!-- {{getCartDet.length}} -->
             <tr *ngFor="let getCartDets of getCartDet">
-              <td><img src="{{getCartDets.img}}" height="50px"></td>
-              <td>₹ {{getCartDets.amt}}</td>
-              <td>
+              <td *ngIf="getCartDets.qnt!=0"><img src="{{getCartDets.img}}" id="resetimage" height="50px"></td>
+              <td *ngIf="getCartDets.qnt!=0">₹ {{getCartDets.amt}}</td>
+              <td *ngIf="getCartDets.qnt!=0">
                 <div class="content">
                     <!-- <button type="button" class="btn"><i class="bi bi-plus"></i></button> -->
                     <button type="button" class="btn" (click)="incQnt(getCartDets.prodId, getCartDets.qnt)">
@@ -25,11 +25,14 @@
                       <span> {{getCartDets.qnt}}  </span>
                       <button type="button" class="btn" (click)="decQnt(getCartDets.prodId, getCartDets.qnt)"> - </button>
                 </div>
-                <td>₹ {{getCartDets.qnt * getCartDets.amt | number}}</td>
+                <td *ngIf="getCartDets.qnt!=0">₹ {{getCartDets.qnt * getCartDets.amt | number}}</td>
+                <!-- <td><button type="remove" class="btn btn-danger" value="remove" ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg></button></td> -->
             </tr>
             
         </table>
-        <div class="col-md-12 text-end text-decoration-underline " style="padding-right: 85px;">
+        <div class="col-md-12 text-end text-decoration-underline " style="padding-right:100px;">
           <h3>Total-₹ {{total}}</h3>
         </div>
             <!-- <tr>

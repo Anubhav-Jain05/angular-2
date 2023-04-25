@@ -41,7 +41,7 @@ decQnt(prodId:any, qnt:any){
   for(let i=0; i<this.getCartDet.length; i++){
     if(this.getCartDet[i].prodId===prodId){
       // qnt + 1;
-      if(qnt != 1)
+      if(qnt != 0)
       this.getCartDet[i].qnt=parseInt(qnt) - 1;
     }
   }
@@ -59,4 +59,5 @@ loadcart(){
     }, 0)
   }
 }
+
 }
