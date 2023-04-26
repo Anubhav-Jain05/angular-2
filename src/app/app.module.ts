@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxUiLoaderModule,NgxUiLoaderRouterModule } from "ngx-ui-loader";
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { HumaniticsComponent } from './humanitics/humanitics.component';
 import { HomeComponent } from './home/home.component';
@@ -42,8 +44,11 @@ import { CartComponent } from './services/cart/cart.component';
     BrowserModule,
     NgxUiLoaderModule,
     NgxUiLoaderRouterModule,
+    BrowserAnimationsModule, // required animations module
+   
     FormsModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot(), 
     RouterModule.forRoot([
       {path: 'HumaniticsComponent', component:HumaniticsComponent},
       {path: 'AboutUsComponent', component:AboutUsComponent},

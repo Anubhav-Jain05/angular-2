@@ -1,3 +1,183 @@
+<!--Student application from using toaster with proper validation-->
 <app-header></app-header>
-<h1>home works!</h1>
+<div class="h-100 d-flex align-items-center justify-content-center mt-4" style="margin-bottom: 1.5rem;">
+    <div class="border border-dark rounded bg-muted text-dark" style="width: 50%; font-size: 15px;" *ngIf="show">
+      <h2 class="container  text-center mt-3"  >Student Details</h2>
+      <form  class="row g-3 d-flex p-3" [formGroup]="SignUpForm" (ngSubmit)="SignUpUser()">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">First Name</label>
+          <input type="text" placeholder="Enter your first name" class="form-control" formControlName="FirstName"  autocomplete="off" required/>
+          <div  class="design " *ngIf="FirstName && FirstName.errors && FirstName.errors['required'] && (FirstName.touched || FirstName.dirty)" 
+          >First Name is required
+        </div>
+        <div  class="design" *ngIf="FirstName && FirstName.errors && FirstName.errors['minlength'] && (FirstName.touched || FirstName.dirty)" 
+        >First Name is too short
+        </div>
+        <div class="design " *ngIf="FirstName && FirstName.errors && FirstName.errors['pattern'] && (FirstName.dirty || FirstName.touched)" 
+            id="col">First character should be Upper or Lower Case
+        </div>
+      </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Last Name</label>
+          <input type="text" placeholder="Enter your last name" class="form-control" formControlName="LastName"  autocomplete="off" />
+          <div class="design " *ngIf="LastName && LastName.errors && LastName.errors['required'] && (LastName.touched || LastName.dirty)" 
+          >LastName is required
+        </div>
+        <div class="design" *ngIf="LastName && LastName.errors && LastName.errors['minlength'] && (LastName.touched || LastName.dirty)" 
+            >LastName is too short
+        </div>
+                      
+        <div class="design" *ngIf="LastName && LastName.errors && LastName.errors['pattern'] && (LastName.dirty || LastName.touched)" 
+                id="col">First character should be Upper or Lower Case
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">E-mail</label>
+          <input type="email" placeholder="Enter your E-mail" class="form-control" formControlName="Email" autocomplete="off" />
+          <div class="design"  *ngIf="Email && Email.errors && Email.errors['required'] && (Email.touched || Email.dirty)" 
+          >Email is required
+      </div>
+      <div class="design" *ngIf="Email && Email.errors && Email.errors['email'] && (Email.touched || Email.dirty)" 
+          >Email is invalid
+      </div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input type="Password" placeholder="Enter your password" autocomplete="off"class="form-control" maxlength="15" formControlName="Password"  />
+          <div class="design" *ngIf="Password && Password.errors && Password.errors['required'] && (Password.touched || Password.dirty)" 
+            >Password is required
+          </div>
+          <div  class="design" *ngIf="Password && Password.errors && Password.errors['minlength']  && (Password.touched || Password.dirty)" 
+                >Password should be atleast 8-15 character long
+          </div>
+          <!-- <div  class="design" *ngIf="Password && Password.errors && Password.errors['pattern']  && (Password.touched || Password.dirty)" 
+          ><pre>Please enter At least 8 characters in length
+          Lowercase letters
+          Uppercase letters
+          Numbers
+          Special characters</pre>
+    </div> -->
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Date Of Birth</label>
+          <input type="date" placeholder="Enter your first name" autocomplete="off" class="form-control"  formControlName= "DateOfBirth"  />
+          <div class="design"  *ngIf="DateOfBirth && DateOfBirth.errors && DateOfBirth.errors['required'] && (DateOfBirth.touched || DateOfBirth.dirty)" 
+            >DOB is required
+          </div>
+        </div>
+       
+       
+        <div class="col-md-6">
+          <label for="inputGender" class="form-label">Gender</label>
+          <select id="inputGender" class="form-select" formControlName="Gender" >
+          <option value="" selected>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+          </select>
+          <div class="design" id="col" *ngIf="Gender && Gender.invalid && (Gender.touched || Gender.dirty)"  >Select Gender</div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Mobile No</label>
+          <input type="text" placeholder="Enter your mob no." autocomplete="off" maxlength="10" autocomplete="off" class="form-control" formControlName="MobileNo" id="inputEmail4" />
+          <div class="design" *ngIf="MobileNo && MobileNo.errors &&MobileNo.errors['required'] && (MobileNo.touched || MobileNo.dirty)" 
+               >Mob.No is required
+          </div>
+          <div class="design" *ngIf="MobileNo && MobileNo.errors &&MobileNo.errors['pattern'] && (MobileNo.touched || MobileNo.dirty)" 
+          id="col" >Mob.No is invalid
+      </div>
+      <div  class="design" *ngIf="MobileNo && MobileNo.errors &&MobileNo.errors['minlength'] && (MobileNo.touched || MobileNo.dirty)" 
+              >Minimum length required 10
+      </div>
+        </div>
+        
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Country</label>
+          <select id="inputState" class="form-select" formControlName="Country">
+            <option value="" selected>Select Country</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="Russia">Russia</option>
+            <option value="England">England</option>
+          </select>
+          <div class="design" *ngIf="Country && Country.errors && Country.errors['required'] && (Country.touched || Country.dirty)"
+          >Country is required
+      </div>
+        </div>
+       
+        <div class="col-6">
+          <button type="submit" Value="Submit"class="btn btn-primary">Submit</button><!--[disabled]="SignUpForm.invalid"-->
+          <!-- <div *ngIf="SignUpForm.invalid">Next button is disabled.Please fill all required field</div> -->
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+    <div class="container my-5" *ngIf="!show">
+      <h2 class="text-decoration-underline">Details</h2>
+      <div>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Mob.No</th>
+            <th>Countrys</th>
+          </tr>
+          <!-- {{getCartDet.length}} -->
+          <tr class="text-success">
+            <td>{{tabledet.fname}}</td>
+            <td>{{tabledet.email}}</td>
+            <td>{{tabledet.dob}}</td>
+            <td>{{tabledet.gender}}</td>
+            <td>{{tabledet.number}}</td>
+            <td>{{tabledet.country}}</td>   
+          </tr>
+  
+        </table>
+        <!-- <div class="col-md-12 text-end text-decoration-underline " style="padding-right:100px;">
+            <h3>Total-₹ {{total}}</h3>
+          </div> -->
+        <!-- <div class="row">
+          <div class="col-md-6">
+            <h3>Total-₹ {{total}}</h3>
+          </div>
+          <div class="col-md-6 text-end my-3">
+            <button type="button" class="removeall" value="remove all item" (click)="removeall()">Remove all item</button>
+          </div>
+        </div>
+      </div> -->
+      <!-- <tr>
+                <td>Centro comercial Moctezuma</td>
+                <td>Francisco Chang</td>
+                <td>Mexico</td>
+              </tr>
+              <tr>
+                <td>Ernst Handel</td>
+                <td>Roland Mendel</td>
+                <td>Austria</td>
+              </tr>
+              <tr>
+                <td>Island Trading</td>
+                <td>Helen Bennett</td>
+                <td>UK</td>
+              </tr>
+              <tr>
+                <td>Laughing Bacchus Winecellars</td>
+                <td>Yoshi Tannamuri</td>
+                <td>Canada</td>
+              </tr>
+              <tr>
+                <td>Magazzini Alimentari Riuniti</td>
+                <td>Giovanni Rovelli</td>
+                <td>Italy</td>
+              </tr> -->
+  
+    </div>
+  
+
+
 <app-footer class="fixed-bottom"></app-footer>
