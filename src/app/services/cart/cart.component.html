@@ -1,41 +1,75 @@
 <app-header></app-header>
 <section class="cart_section">
-   <div class="container">
-   <h2 class="text-decoration-underline">Cart</h2>
-        <table>
-            <tr>
-              <th>Image</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Sub.Total</th>
-              <th>Remove Item</th>
-            </tr>
-            <!-- {{getCartDet.length}} -->
-            <tr *ngFor="let getCartDets of getCartDet">
-              <td *ngIf="getCartDets.qnt!=0"><img src="{{getCartDets.img}}" id="resetimage" height="50px"></td>
-              <td *ngIf="getCartDets.qnt!=0">₹ {{getCartDets.amt}}</td>
-              <td *ngIf="getCartDets.qnt!=0">
-                <div class="content">
-                    <!-- <button type="button" class="btn"><i class="bi bi-plus"></i></button> -->
-                    <button type="button" class="btn" (click)="incQnt(getCartDets.prodId, getCartDets.qnt)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                      </svg>
-                    </button>
-                      <span> {{getCartDets.qnt}}  </span>
-                      <button type="button" class="btn" (click)="decQnt(getCartDets.prodId, getCartDets.qnt)"> - </button>
+  <div class="container">
+    <h2 class="text-decoration-underline">Cart</h2>
+    <div *ngIf="getCartDet">
+      <table>
+        <tr>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Sub.Total</th>
+          <th>Remove Item</th>
+        </tr>
+        <!-- {{getCartDet.length}} -->
+        <tr *ngFor="let getCartDets of getCartDet">
+          <td><img src="{{getCartDets.img}}" id="resetimage" height="50px"></td>
+          <td>₹ {{getCartDets.amt}}</td>
+          <td>
+            <div class="content">
+              <!-- <button type="button" class="btn"><i class="bi bi-plus"></i></button> -->
+              <button type="button" class="btn" (click)="incQnt(getCartDets.prodId, getCartDets.qnt)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg>
+              </button>
+              <span> {{getCartDets.qnt}} </span>
+              <button type="button" class="btn" (click)="decQnt(getCartDets.prodId, getCartDets.qnt)"> - </button>
+            </div>
+          <td>₹ {{getCartDets.qnt * getCartDets.amt | number}}</td><!--*ngIf="getCartDets.qnt!=0"-->
+          <td><button type="remove" class="btn btn-danger" value="remove" (click)="delete(getCartDets)"><svg
+                xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x"
+                viewBox="0 0 16 16">
+                <path
+                  d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+              </svg></button>
+          </td>
+          <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':model}">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header bg-secondary text-white">
+                  <h5 class="modal-title text-decoration-underline" id="exampleModalLabel">Remember</h5>
+                  <button type="button" class="btn-close btn-danger bg-white" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="close()"></button>
                 </div>
-                <td *ngIf="getCartDets.qnt!=0">₹ {{getCartDets.qnt * getCartDets.amt | number}}</td>
-                <td><button type="remove" class="btn btn-danger" value="remove" ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                </svg></button></td>
-            </tr>
-            
-        </table>
-        <div class="col-md-12 text-end text-decoration-underline " style="padding-right:100px;">
+                <div class="modal-body text-danger">
+                  <b>Are You want to remove the item....!</b>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-secondary" type="button" (click)="close()">Close</button>
+                  <button class="btn btn-success" (click)="singledelete(singleitemdelete)">Yes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tr>
+
+      </table>
+      <!-- <div class="col-md-12 text-end text-decoration-underline " style="padding-right:100px;">
+          <h3>Total-₹ {{total}}</h3>
+        </div> -->
+      <div class="row">
+        <div class="col-md-6">
           <h3>Total-₹ {{total}}</h3>
         </div>
-            <!-- <tr>
+        <div class="col-md-6 text-end my-3">
+          <button type="button" class="removeall" value="remove all item" (click)="removeall()">Remove all item</button>
+        </div>
+      </div>
+    </div>
+    <!-- <tr>
               <td>Centro comercial Moctezuma</td>
               <td>Francisco Chang</td>
               <td>Mexico</td>
@@ -60,8 +94,8 @@
               <td>Giovanni Rovelli</td>
               <td>Italy</td>
             </tr> -->
-          
-    </div>
+
+  </div>
 </section>
 
 
