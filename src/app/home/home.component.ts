@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+ 
   title = "Angular Reactive form"
   SignUpForm = new FormGroup({
     FirstName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern("[a-zA-Z].*")]),
@@ -143,7 +144,6 @@ export class HomeComponent {
       }
     }
   }
-  edititem(){
-    
-  }
+  
+  
 }
