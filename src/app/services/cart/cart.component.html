@@ -1,5 +1,5 @@
 <app-header></app-header>
-<section class="cart_section">
+<section class="cart_section" *ngIf="getCartDet.length!=0">
   <div class="container">
     <h2 class="text-decoration-underline">Cart</h2>
     <div *ngIf="getCartDet">

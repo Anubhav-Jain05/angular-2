@@ -70,6 +70,7 @@ export class CartComponent {
     this.singleitemdelete = getCartDets;
 
   }
+  
   close() {
     this.model = "none";
   }
