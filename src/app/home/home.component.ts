@@ -69,7 +69,7 @@ export class HomeComponent {
     //   this.tabledet.country=details.Country
     // }
 
-    // this.toastr.success('Hello world!', 'Toastr fun!');
+    
     // this.routing.navigate(['/UseradComponent'])
     // this.onshow()
 
@@ -145,5 +145,7 @@ export class HomeComponent {
     }
   }
   
-  
+  editdetails(){
+    
+  }
 }
