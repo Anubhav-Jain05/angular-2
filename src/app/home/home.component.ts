@@ -9,8 +9,19 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
- 
+ submittoupdate=false;
   title = "Angular Reactive form"
+  information={
+    FirstName:'',
+    LastName:'',
+    MobileNo:'',
+    Email:'',
+    Password:'',
+    DateOfBirth:'',
+    Gender:'',
+    Country:'',
+
+  }
   SignUpForm = new FormGroup({
     FirstName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern("[a-zA-Z].*")]),
     LastName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern("[a-zA-Z].*")]),
@@ -40,7 +51,6 @@ export class HomeComponent {
   // constructor(private routing: Router) { }
   details: any = [];
   SignUpUser() {
-    //alert("submitted")
     let det = localStorage.getItem('signup')
     if (det) {
       let showdet = JSON.parse(det)
@@ -52,7 +62,10 @@ export class HomeComponent {
     this.details.push({ ...this.SignUpForm.value });
     window.localStorage.setItem("signup", JSON.stringify(this.details));
     console.log(this.SignUpForm.value);
+
+    this.SignUpForm.reset();
     this.toastr.success('Form Successfully Submitted', 'Submitted', { timeOut: 1000 });
+    
     // this.toastr.error('Form Successfully Submitted', 'Submitted',{timeOut:1000});
     // this.toastr.warning('Form Successfully Submitted', 'Submitted',{timeOut:1000});
     // this.toastr.info('Form Successfully Submitted', 'Submitted',{timeOut:1000});
@@ -75,7 +88,21 @@ export class HomeComponent {
 
 
   }
+  updateData(){
+    // let det = localStorage.getItem('signup')
+    this.submittoupdate=false;
+    const singledlt=this.SignUpForm.value
+    for (let i = 0; i < this.details.length; i++) {
+      if (this.details[i].MobileNo == singledlt.MobileNo) {
+        this.details[i]=this.SignUpForm.value
+        localStorage.setItem('signup', JSON.stringify(this.details));
+        this.toastr.warning('Data Successfully Deleted', 'Deleted', { timeOut: 1000 });
+        this.SignUpForm.reset();
 
+        return;
+      }
+    }
+  }
   get FirstName() {
     return this.SignUpForm.get("FirstName");
   }
@@ -145,7 +172,15 @@ export class HomeComponent {
     }
   }
   
-  editdetails(){
-    
+  editdetails(tabledet:any){
+    this.information.FirstName=tabledet.FirstName;
+    this.information.LastName=tabledet.LastName;
+    this.information.Email=tabledet.Email;
+    this.information.DateOfBirth=tabledet.DateOfBirth;
+    this.information.Gender=tabledet.Gender;
+    this.information.MobileNo=tabledet.MobileNo;
+    this.information.Country=tabledet.Country;
+    this.submittoupdate=true;
+
   }
 }

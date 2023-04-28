@@ -3,11 +3,11 @@
 <div class="h-100 d-flex align-items-center justify-content-center mt-4" style="margin-bottom: 1.5rem;">
   <div class="border border-dark rounded bg-muted text-dark" style="width: 50%; font-size: 15px;"><!--*ngIf="show"-->
     <h2 class="container  text-center  text-decoration-underline mt-3">Student Details</h2>
-    <form class="row g-3 d-flex p-3" [formGroup]="SignUpForm" (ngSubmit)="SignUpUser()">
+    <form class="row g-3 d-flex p-3" [formGroup]="SignUpForm" >
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">First Name</label>
         <input type="text" placeholder="Enter your first name" class="form-control" formControlName="FirstName"
-          autocomplete="off" required />
+          autocomplete="off" required  [(ngModel)]="information.FirstName"/>
         <div class="design "
           *ngIf="FirstName && FirstName.errors && FirstName.errors['required'] && (FirstName.touched || FirstName.dirty)">
           First Name is required
@@ -24,7 +24,7 @@
       <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Last Name</label>
         <input type="text" placeholder="Enter your last name" class="form-control" formControlName="LastName"
-          autocomplete="off" />
+          autocomplete="off" [(ngModel)]="information.LastName"/>
         <div class="design "
           *ngIf="LastName && LastName.errors && LastName.errors['required'] && (LastName.touched || LastName.dirty)">
           LastName is required
@@ -43,7 +43,7 @@
       <div class="col-md-6">
         <label for="inputPassword4" class="form-label">E-mail</label>
         <input type="email" placeholder="Enter your E-mail" class="form-control" formControlName="Email"
-          autocomplete="off" />
+          autocomplete="off" [(ngModel)]="information.Email"/>
         <div class="design" *ngIf="Email && Email.errors && Email.errors['required'] && (Email.touched || Email.dirty)">
           Email is required
         </div>
@@ -51,10 +51,10 @@
           Email is invalid
         </div>
       </div>
-      <div class="col-md-6">
+      <!-- <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Password</label>
         <input type="Password" placeholder="Enter your password" autocomplete="off" class="form-control" maxlength="15"
-          formControlName="Password" />
+          formControlName="Password" [(ngModel)]="information.Password" />
         <div class="design"
           *ngIf="Password && Password.errors && Password.errors['required'] && (Password.touched || Password.dirty)">
           Password is required
@@ -62,7 +62,7 @@
         <div class="design"
           *ngIf="Password && Password.errors && Password.errors['minlength']  && (Password.touched || Password.dirty)">
           Password should be atleast 8-15 character long
-        </div>
+        </div> -->
         <!-- <div  class="design" *ngIf="Password && Password.errors && Password.errors['pattern']  && (Password.touched || Password.dirty)" 
           ><pre>Please enter At least 8 characters in length
           Lowercase letters
@@ -70,11 +70,11 @@
           Numbers
           Special characters</pre>
     </div> -->
-      </div>
+      <!-- </div> -->
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Date Of Birth</label>
         <input type="date" placeholder="Enter your first name" autocomplete="off" class="form-control"
-          formControlName="DateOfBirth" />
+          formControlName="DateOfBirth" [(ngModel)]="information. DateOfBirth" />
         <div class="design"
           *ngIf="DateOfBirth && DateOfBirth.errors && DateOfBirth.errors['required'] && (DateOfBirth.touched || DateOfBirth.dirty)">
           DOB is required
@@ -84,7 +84,7 @@
 
       <div class="col-md-6">
         <label for="inputGender" class="form-label">Gender</label>
-        <select id="inputGender" class="form-select" formControlName="Gender">
+        <select id="inputGender" class="form-select" formControlName="Gender" [(ngModel)]="information.Gender" >
           <option value="" selected>Select Gender</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
@@ -96,7 +96,7 @@
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Mobile No</label>
         <input type="text" placeholder="Enter your mob no." autocomplete="off" maxlength="10" autocomplete="off"
-          class="form-control" formControlName="MobileNo" id="inputEmail4" />
+          class="form-control" formControlName="MobileNo" id="inputEmail4" [(ngModel)]="information.MobileNo"/>
         <div class="design"
           *ngIf="MobileNo && MobileNo.errors &&MobileNo.errors['required'] && (MobileNo.touched || MobileNo.dirty)">
           Mob.No is required
@@ -113,7 +113,7 @@
 
       <div class="col-md-6">
         <label for="inputState" class="form-label">Country</label>
-        <select id="inputState" class="form-select" formControlName="Country">
+        <select id="inputState" class="form-select" formControlName="Country" [(ngModel)]="information.Country">
           <option value="" selected>Select Country</option>
           <option value="India">India</option>
           <option value="USA">USA</option>
@@ -128,8 +128,10 @@
 
       <div class="col-12 text-end">
         <button type="submit" Value="Submit"
-          class="btn btn-primary ">Submit</button><!--[disabled]="SignUpForm.invalid"-->
+          class="btn btn-primary " (click)="SignUpUser()" *ngIf="!submittoupdate">Submit</button><!--[disabled]="SignUpForm.invalid"-->
         <!-- <div *ngIf="SignUpForm.invalid">Next button is disabled.Please fill all required field</div> -->
+        <button type="button" Value=""
+        class="btn btn-primary " (click)="updateData()" *ngIf="submittoupdate">Update</button>
       </div>
     </form>
   </div>
@@ -161,7 +163,7 @@
         <td>{{tabledet.Country}}</td>
         <td class="">
           <div>
-            <button type="button" value="edit" class="btn btn-secondary" (click)="editdetails()">Edit </button>
+            <button type="button" value="edit" class="btn btn-secondary" (click)="editdetails(tabledet)">Edit </button>
             <button type="button" (click)="singledelete(tabledet)"value="delete" class="btn btn-danger" style="margin-left: 5px;"
               > Delete</button>
           </div>
