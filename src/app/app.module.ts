@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule,Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxUiLoaderModule,NgxUiLoaderRouterModule } from "ngx-ui-loader";
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AppComponent } from './app.component';
 import { HumaniticsComponent } from './humanitics/humanitics.component';
 import { HomeComponent } from './home/home.component';
@@ -21,6 +22,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { NextComponent } from './about-us/next/next.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CartComponent } from './services/cart/cart.component';
+import { ImgComponent } from './shared/img/img.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +40,15 @@ import { CartComponent } from './services/cart/cart.component';
     HeaderComponent,
     NextComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    ImgComponent
   ],
   imports: [
     BrowserModule,
     NgxUiLoaderModule,
     NgxUiLoaderRouterModule,
     BrowserAnimationsModule, // required animations module
-   
+    CarouselModule,
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(), 
@@ -64,6 +67,7 @@ import { CartComponent } from './services/cart/cart.component';
       {path: 'NextComponent', component:NextComponent},
       {path: 'FooterComponent', component:FooterComponent},
       {path: 'CartComponent', component:CartComponent},
+      {path: 'ImgComponent', component:ImgComponent},
       
     ]),
     AppRoutingModule
