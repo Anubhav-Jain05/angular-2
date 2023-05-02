@@ -83,23 +83,23 @@ export class JsesComponent {
     const ans = course1.course + ' ' + course2.course;
     return ans
   }
-  comment=""
-  promises() {
-    let str="anubhav"
-    let promise =new Promise((resolve,reject)=>{
-      setTimeout(()=>{
-        resolve("xyz")
-      },3000)
-    })
-    promise.then((data:any)=>{
-      this.comment=data
-      str=data
-      console.log(data)
-      return data
-    })
+  // comment=""
+  // promises() {
+  //   let str="anubhav"
+  //   let promise =new Promise((resolve,reject)=>{
+  //     setTimeout(()=>{
+  //       resolve("xyz")
+  //     },3000)
+  //   })
+  //   promise.then((data:any)=>{
+  //     this.comment=data
+  //     str=data
+  //     console.log(data)
+  //     return data
+  //   })
     
-    return str
-  }
+  //   return str
+  // }
 
 }
 
