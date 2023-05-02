@@ -23,6 +23,8 @@ import { NextComponent } from './about-us/next/next.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CartComponent } from './services/cart/cart.component';
 import { ImgComponent } from './shared/img/img.component';
+import { JsesComponent } from './shared/jses/jses.component';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ImgComponent } from './shared/img/img.component';
     NextComponent,
     FooterComponent,
     CartComponent,
-    ImgComponent
+    ImgComponent,
+    JsesComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -68,6 +72,9 @@ import { ImgComponent } from './shared/img/img.component';
       {path: 'FooterComponent', component:FooterComponent},
       {path: 'CartComponent', component:CartComponent},
       {path: 'ImgComponent', component:ImgComponent},
+      {path: 'JsesComponent', component:JsesComponent},
+     
+   
       
     ]),
     AppRoutingModule
