@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class HomeComponent {
     Gender: new FormControl('', [Validators.required]),
     Country: new FormControl('', [Validators.required])
   })
-  constructor(private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService,private http:HttpClient) { }
   // tabledet={
   //   fname:'',
   //   lname:'',
@@ -61,9 +62,13 @@ export class HomeComponent {
     }
     this.details.push({ ...this.SignUpForm.value });
     window.localStorage.setItem("signup", JSON.stringify(this.details));
-    console.log(this.SignUpForm.value);
+    console.log(this.SignUpForm.value); 
+    this.http.post(' http://localhost:3000/sendmail', { ...this.SignUpForm.value }).subscribe(data => {
+      console.log(data);
+    });
 
     this.SignUpForm.reset();
+
     this.toastr.success('Form Successfully Submitted', 'Submitted', { timeOut: 1000 });
     
     // this.toastr.error('Form Successfully Submitted', 'Submitted',{timeOut:1000});

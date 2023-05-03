@@ -7,6 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { HttpClientModule } from "@angular/common/http"
+
+
 import { AppComponent } from './app.component';
 import { HumaniticsComponent } from './humanitics/humanitics.component';
 import { HomeComponent } from './home/home.component';
@@ -54,6 +57,7 @@ import { JsesComponent } from './shared/jses/jses.component';
     BrowserAnimationsModule, // required animations module
     CarouselModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(), 
     RouterModule.forRoot([
