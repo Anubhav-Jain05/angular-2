@@ -15,6 +15,7 @@ import { RatingModule } from 'primeng/rating';
 import { CheckboxModule } from 'primeng/checkbox';
 import { TreeModule } from 'primeng/tree';
 import { ChartModule } from 'primeng/chart';
+import { DockModule } from 'primeng/dock';
 import { AppComponent } from './app.component';
 import { HumaniticsComponent } from './humanitics/humanitics.component';
 import { HomeComponent } from './home/home.component';
@@ -71,6 +72,7 @@ import { PrimengComponent } from './about-us/primeng/primeng.component';
     CheckboxModule,
     TreeModule,
     ChartModule,
+    DockModule,
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(), 
