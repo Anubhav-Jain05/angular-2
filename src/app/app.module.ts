@@ -7,9 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { HttpClientModule } from "@angular/common/http"
-
-
+import { HttpClientModule } from "@angular/common/http";
+import { TableModule } from 'primeng/table';
+import { DragDropModule } from 'primeng/dragdrop';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { RatingModule } from 'primeng/rating';
+import { CheckboxModule } from 'primeng/checkbox';
+import { TreeModule } from 'primeng/tree';
+import { ChartModule } from 'primeng/chart';
 import { AppComponent } from './app.component';
 import { HumaniticsComponent } from './humanitics/humanitics.component';
 import { HomeComponent } from './home/home.component';
@@ -27,6 +32,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { CartComponent } from './services/cart/cart.component';
 import { ImgComponent } from './shared/img/img.component';
 import { JsesComponent } from './shared/jses/jses.component';
+import { PrimengComponent } from './about-us/primeng/primeng.component';
 
 
 @NgModule({
@@ -48,6 +54,7 @@ import { JsesComponent } from './shared/jses/jses.component';
     CartComponent,
     ImgComponent,
     JsesComponent,
+    PrimengComponent,
     
   ],
   imports: [
@@ -57,6 +64,13 @@ import { JsesComponent } from './shared/jses/jses.component';
     BrowserAnimationsModule, // required animations module
     CarouselModule,
     FormsModule,
+    TableModule,
+    DragDropModule,
+    ProgressBarModule,
+    RatingModule,
+    CheckboxModule,
+    TreeModule,
+    ChartModule,
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(), 
@@ -77,7 +91,7 @@ import { JsesComponent } from './shared/jses/jses.component';
       {path: 'CartComponent', component:CartComponent},
       {path: 'ImgComponent', component:ImgComponent},
       {path: 'JsesComponent', component:JsesComponent},
-     
+      {path: 'PrimengComponent', component:PrimengComponent},
    
       
     ]),
