@@ -6,64 +6,61 @@
 
 
 <div class="container">
-    <div class="h5 text-decoration-underline">Table</div>
-    <div class="card border-dark">
-        <p-table [value]="products" responsiveLayout="stack">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>Sr.No</th>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-product>
-                <tr>
-                    <td class="h6"><span
-                            class="p-column-title text-primary text-decoration-underline">Sr.No</span>{{product.id}}
-                    </td>
-                    <td><span class="p-column-title text-success">Name</span>{{ product.name }}</td>
-                    <td><span class="p-column-title text-success">Category</span>{{ product.category }}</td>
-                    <td><span class="p-column-title text-success">Price</span>{{ product.price }}</td>
-                    <td><span class="p-column-title text-success">Quantity</span>{{ product.quantity }}</td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
+<div class="h5 text-decoration-underline">Table</div>
+<div class="card border-dark">
+    <p-table [value]="products"  responsiveLayout="stack">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Sr.No</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td class="h6"><span class="p-column-title text-primary text-decoration-underline">Sr.No</span>{{product.id}}</td>
+                <td><span class="p-column-title text-success">Name</span>{{ product.name }}</td>
+                <td><span class="p-column-title text-success">Category</span>{{ product.category }}</td>
+                <td><span class="p-column-title text-success">Price</span>{{ product.price }}</td>
+                <td><span class="p-column-title text-success">Quantity</span>{{ product.quantity }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
 </div>
 
 <div class="text-center text-decoration-underline mt-3">
     <h4>Drag and Drop</h4>
 </div>
 
-<div class="container">
-    <div class="card flex flex-wrap gap-3 border-dark">
-        <div class="row">
-            <div class="col-6 ">
-                <div class="p-2 border-1 surface-border border-round w-15rem">
-                    <p class=" h4 text-start text-decoration-underline surface-border border-bottom-1 ">Drag Zone</p>
-                    <ul class="list-gruop flex flex-column gap-2 p-0 m-0">
-                        <li *ngFor="let product of availableProducts" class="p-2 border-round shadow-1 list-group-item"
-                            pDraggable (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
-                            {{product.name}}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-6">
-                <div class="p-2 border-1 surface-border border-round w-15rem" pDroppable (onDrop)="drop()">
-                    <p class="h4 text-start text-decoration-underline surface-border border-bottom-1">Drop Zone</p>
-                    <ul class="list-group flex flex-column gap-2 p-0 m-0" *ngIf="selectedProducts">
-                        <li *ngFor="let product of selectedProducts" class="p-2 border-round shadow-1 list-group-item">
-                            {{product.name}}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<div class="container">   
+<div class="card flex flex-wrap gap-3 border-dark">
+    <div class="row">
+    <div class="col-6 ">
+    <div class="p-2 border-1 surface-border border-round w-15rem">
+        <p class=" h4 text-start text-decoration-underline surface-border border-bottom-1 ">Drag Zone</p>
+        <ul class="list-gruop flex flex-column gap-2 p-0 m-0">
+            <li  *ngFor="let product of availableProducts" class="p-2 border-round shadow-1 list-group-item" pDraggable (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+                {{product.name}}
+            </li>
+        </ul>
     </div>
+</div>
+
+<div class="col-6">
+    <div class="p-2 border-1 surface-border border-round w-15rem" pDroppable (onDrop)="drop()">
+        <p class="h4 text-start text-decoration-underline surface-border border-bottom-1">Drop Zone</p>
+        <ul class="list-group flex flex-column gap-2 p-0 m-0" *ngIf="selectedProducts" >
+            <li *ngFor="let product of selectedProducts" class="p-2 border-round shadow-1 list-group-item">
+                {{product.name}}
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+</div>
 </div>
 
 <div class="text-center text-decoration-underline mt-3">
@@ -72,15 +69,15 @@
 
 <div class="container border-dark">
     <div class="card flex flex-wrap gap-3 border-dark p-2">
-        <div class="card mt-2">
-            <p-progressBar class="h6" [value]="40"></p-progressBar>
-        </div>
-        <div class="card mt-2">
-            <p-progressBar class="h6" [value]="70"></p-progressBar>
-        </div>
-        <div class="card mt-2">
-            <p-progressBar class="h6" [value]="99.99"></p-progressBar>
-        </div>
+<div class="card mt-2">
+    <p-progressBar class="h6" [value]="40"></p-progressBar>
+</div>
+<div class="card mt-2">
+    <p-progressBar  class="h6" [value]="70"></p-progressBar>
+</div>
+<div class="card mt-2">
+    <p-progressBar  class="h6" [value]="99.99"></p-progressBar>
+</div>
     </div>
 </div>
 
@@ -90,16 +87,16 @@
 
 <div class="container">
     <div class="card flex flex-wrap gap-3 border-dark p-2">
-        <div class="card flex justify-content-center mt-2">
-            <p-rating [(ngModel)]="value"></p-rating>
-        </div>
-        <div class="card flex justify-content-center mt-2">
-            <p-rating [(ngModel)]="num1"></p-rating>
-        </div>
-        <div class="card flex justify-content-center mt-2">
-            <p-rating [(ngModel)]="num2"></p-rating>
-        </div>
-    </div>
+<div class="card flex justify-content-center mt-2">
+    <p-rating [(ngModel)]="value"></p-rating>
+</div>
+<div class="card flex justify-content-center mt-2">
+    <p-rating [(ngModel)]="num1"></p-rating>
+</div>
+<div class="card flex justify-content-center mt-2">
+    <p-rating [(ngModel)]="num2"></p-rating>
+</div>
+</div>
 </div>
 
 <div class="text-center text-decoration-underline mt-3">
@@ -108,53 +105,46 @@
 
 <div class="container">
     <div class="card flex flex-wrap gap-3 border-dark p-2">
-        <div class=" d-flex  gap-3">
-            <div class="h6 flex align-items-center gap-1">
-                <p-checkbox name="group1" value="New York" [(ngModel)]="selectedCities" inputId="ny"></p-checkbox>
-                <label for="ny">New York</label>
-            </div>
-            <div class="h6 flex align-items-center gap-1">
-                <p-checkbox name="group1" value="San Francisco" [(ngModel)]="selectedCities" inputId="sf"></p-checkbox>
-                <label for="sf">San Francisco</label>
-            </div>
-            <div class="h6 flex align-items-center gap-1">
-                <p-checkbox name="group1" value="Los Angeles" [(ngModel)]="selectedCities" inputId="la"></p-checkbox>
-                <label for="la">Los Angeles</label>
-            </div>
-        </div>
+<div class=" d-flex  gap-3">
+    <div class="h6 flex align-items-center gap-1">
+        <p-checkbox name="group1"  value="New York" [(ngModel)]="selectedCities" inputId="ny"></p-checkbox>
+        <label for="ny">New York</label>
+    </div>
+    <div class="h6 flex align-items-center gap-1">
+        <p-checkbox name="group1" value="San Francisco" [(ngModel)]="selectedCities" inputId="sf"></p-checkbox>
+        <label for="sf">San Francisco</label>
+    </div>
+    <div class="h6 flex align-items-center gap-1">
+        <p-checkbox name="group1" value="Los Angeles" [(ngModel)]="selectedCities" inputId="la"></p-checkbox>
+        <label for="la">Los Angeles</label>
+    </div>
+</div>
     </div>
 </div>
 
 <div class="container">
-
-    <div class="text-center text-decoration-underline mt-3">
-        <h4>Tree Working</h4>
-    </div>
-    <div class="card flex flex-wrap gap-3 border-dark p-2">
-        <div class="card flex justify-content-center">
-            <p-tree class="w-full md:w-30rem" [value]="files"></p-tree>
-        </div>
-        <div class="card flex justify-content-center">
-            <p-tree class="w-full md:w-30rem" [value]="events"></p-tree>
-        </div>
+   
+<div class="text-center text-decoration-underline mt-3">
+    <h4>Tree Working</h4>
+</div>
+<div class="card flex flex-wrap gap-3 border-dark p-2">
+<div class="card flex justify-content-center">
+    <p-tree class="w-full md:w-30rem" [value]="files"></p-tree>
+</div>
+<div class="card flex justify-content-center">
+    <p-tree class="w-full md:w-30rem" [value]="events"></p-tree>
+</div>
     </div>
 </div>
 
-<div class="container" style="margin-bottom: 50px;">
+<div class="container">
     <div class="text-center text-decoration-underline mt-3">
         <h4>Chartt</h4>
     </div>
     <div class="card flex flex-wrap gap-3 border-dark p-2">
-        <div class="card">
-            <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
-        </div>
+    <div class="card">
+        <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
     </div>
-    <div class="dock-window"><!-- position-fixed top-50 end-0-->
-        <p-dock [model]="items" [position]="position">
-            <ng-template pTemplate="item" let-item>
-                <img [src]="item.icon" [alt]="item.label" width="100%" />
-            </ng-template>
-        </p-dock>
     </div>
 </div>
 
@@ -162,4 +152,4 @@
 
 
 
-<!-- <app-footer class="fixed-bottom"></app-footer> -->
+
