@@ -33,6 +33,7 @@ import { CartComponent } from './services/cart/cart.component';
 import { ImgComponent } from './shared/img/img.component';
 import { JsesComponent } from './shared/jses/jses.component';
 import { PrimengComponent } from './about-us/primeng/primeng.component';
+import { JqueryimmplComponent } from './shared/jqueryimmpl/jqueryimmpl.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { PrimengComponent } from './about-us/primeng/primeng.component';
     ImgComponent,
     JsesComponent,
     PrimengComponent,
+    JqueryimmplComponent,
     
   ],
   imports: [
@@ -91,6 +93,7 @@ import { PrimengComponent } from './about-us/primeng/primeng.component';
       {path: 'CartComponent', component:CartComponent},
       {path: 'ImgComponent', component:ImgComponent},
       {path: 'JsesComponent', component:JsesComponent},
+      {path: 'JqueryimmplComponent', component:JqueryimmplComponent},
       {path: 'PrimengComponent', component:PrimengComponent},
    
       
